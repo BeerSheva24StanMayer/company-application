@@ -7,7 +7,11 @@ public class Main {
     public static void main(String[] args) {
         Company company = new CompanyImpl();
         if (company instanceof Persistable persistable) {
-            persistable.restoreFromFile("employees.data");
+            try {
+                persistable.restoreFromFile("employees.data");
+            } catch (Exception e) {
+                persistable.saveToFile("company.data");
+            }
         }
         Item[] items = CompanyItems.getItems(company);
         Menu menu = new Menu("Company Application", items);
