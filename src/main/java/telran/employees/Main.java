@@ -1,5 +1,7 @@
 package telran.employees;
 
+import java.util.HashMap;
+
 import telran.io.Persistable;
 import telran.view.*;
 
@@ -10,7 +12,7 @@ public class Main {
             try {
                 persistable.restoreFromFile("employees.data");
             } catch (Exception e) {
-                persistable.saveToFile("company.data");
+                persistable.saveToFile("employees.data");
             }
         }
         Item[] items = CompanyItems.getItems(company);
